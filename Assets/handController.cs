@@ -26,16 +26,7 @@ public class handController : MonoBehaviour
         {
             this.transform.Translate(0.1f, 0.0f, 0.0f);
         }
-        // 前に移動
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            this.transform.Translate(0.0f, 0.0f, 0.1f);
-        }
-        // 後ろに移動
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            this.transform.Translate(0.0f, 0.0f, -0.1f);
-        }
+      
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rBody = this.GetComponent<Rigidbody>();
