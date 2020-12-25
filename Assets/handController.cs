@@ -16,6 +16,11 @@ public class handController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(this.transform.position.y < 0)
+        {
+            return;
+        }
+
         // 左に移動
         if (Input.GetKey(KeyCode.LeftArrow))
         {
