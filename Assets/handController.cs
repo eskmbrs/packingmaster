@@ -16,7 +16,7 @@ public class handController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(this.transform.position.y < 3.2 )
+        if(this.transform.position.y < 2 )
         {
             return;
         }

@@ -14,34 +14,36 @@ public class prefabTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            GameObject obj = (GameObject)Resources.Load("MyObject");
+            GameObject obj = (GameObject)Resources.Load("BEAR");
             // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f,3.8f, 0.0f), Quaternion.identity);
+            Instantiate(obj, new Vector3(-2f,3.8f, 0.0f), new Quaternion(0,90,0,0));
         }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            GameObject obj = (GameObject)Resources.Load("MySphere");
-            // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
-        }
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            GameObject obj = (GameObject)Resources.Load("MyObject2");
-            // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
-        }
+  
         if (Input.GetKeyDown(KeyCode.D))
         {
             GameObject obj = (GameObject)Resources.Load("Beer");
             // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 180, 0, 0));
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
             GameObject obj = (GameObject)Resources.Load("Ball");
             // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 180, 0, 0));
         }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            GameObject obj = (GameObject)Resources.Load("SHEEP");
+            // Cubeプレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 180, 0, 0));
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            GameObject obj = (GameObject)Resources.Load("PIG");
+            // Cubeプレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 180, 0, 0));
+        }
+
 
     }
 
