@@ -30,6 +30,18 @@ public class prefabTest : MonoBehaviour
             // Cubeプレハブを元に、インスタンスを生成、
             Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
         }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            GameObject obj = (GameObject)Resources.Load("Beer");
+            // Cubeプレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameObject obj = (GameObject)Resources.Load("Ball");
+            // Cubeプレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
+        }
 
     }
 
