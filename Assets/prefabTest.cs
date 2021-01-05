@@ -44,6 +44,7 @@ public class prefabTest : MonoBehaviour
             Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 180, 0, 0));
         }
 
+        
 
     }
 

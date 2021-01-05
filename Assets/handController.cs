@@ -24,12 +24,12 @@ public class handController : MonoBehaviour
         // 左に移動
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.transform.Translate(-0.05f, 0.0f, 0.0f);
+            this.transform.Translate(-0.01f, 0.0f, 0.0f);
         }
         // 右に移動
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.Translate(0.05f, 0.0f, 0.0f);
+            this.transform.Translate(0.01f, 0.0f, 0.0f);
         }
       
         if (Input.GetKeyDown(KeyCode.Space))
