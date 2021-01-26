@@ -16,13 +16,19 @@ public class prefabTest : MonoBehaviour
         {
             GameObject obj = (GameObject)Resources.Load("MyObject");
             // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 2.6f, 0.0f), Quaternion.identity);
+            Instantiate(obj, new Vector3(-2f,3.8f, 0.0f), Quaternion.identity);
         }
         if (Input.GetKeyDown(KeyCode.B))
         {
             GameObject obj = (GameObject)Resources.Load("MySphere");
             // Cubeプレハブを元に、インスタンスを生成、
-            Instantiate(obj, new Vector3(-2f, 2.6f, 0.0f), Quaternion.identity);
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            GameObject obj = (GameObject)Resources.Load("MyObject2");
+            // Cubeプレハブを元に、インスタンスを生成、
+            Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.identity);
         }
 
     }
