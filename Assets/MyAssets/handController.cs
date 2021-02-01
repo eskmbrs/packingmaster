@@ -38,6 +38,7 @@ public class handController : MonoBehaviour
         }
 
        
+       
 
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )
