@@ -16,7 +16,7 @@ public class MyButton : MonoBehaviour
         UpdateLabel();
     }
 
-    public void GenerateToypig()
+    public void GenerateToyPig()
     {
         GameObject obj = (GameObject)Resources.Load("toypig");
         // Cubeプレハブを元に、インスタンスを生成、
