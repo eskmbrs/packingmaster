@@ -16,7 +16,7 @@ public class MyButton : MonoBehaviour
         UpdateLabel();
     }
 
-    public void GenerateRagby()
+    public void GenerateToypig()
     {
         GameObject obj = (GameObject)Resources.Load("toypig");
         // Cubeプレハブを元に、インスタンスを生成、
@@ -24,7 +24,7 @@ public class MyButton : MonoBehaviour
 
         obj.GetComponent<handController>().controlled = true;
     }
-    public void GenerateRobot()
+    public void GenerateSoccerBall()
     {
         GameObject obj = (GameObject)Resources.Load("soccerBall");
         // Cubeプレハブを元に、インスタンスを生成、
@@ -32,7 +32,7 @@ public class MyButton : MonoBehaviour
 
         obj.GetComponent<handController>().controlled = true;
     }
-    public void GenerateHammer()
+    public void GenerateToyPenguin()
     {
         GameObject obj = (GameObject)Resources.Load("toypenguin");
         // Cubeプレハブを元に、インスタンスを生成、
@@ -43,11 +43,8 @@ public class MyButton : MonoBehaviour
 
     public void DecrementNumber()
     {
-
         count--;
         UpdateLabel();
-
-      
     }
 
     //パッキングするごとに，数が減っていく
@@ -55,7 +52,6 @@ public class MyButton : MonoBehaviour
     {
         GameObject numberText = transform.Find("number").gameObject;
         numberText.GetComponent<TextMeshProUGUI>().text = count.ToString();
-
     }
 
 }
