@@ -13,30 +13,34 @@ public class MyButton : MonoBehaviour
     {
         //個数制限
         count = 3;
-        UpdateLabel();
+        UpdateLastNumber();
     }
 
-    public void GenerateRagby()
-    {
-        GameObject obj = (GameObject)Resources.Load("toypig");
-        // Cubeプレハブを元に、インスタンスを生成、
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 90, 0, 0));
 
-        obj.GetComponent<handController>().controlled = true;
-    }
-    public void GenerateRobot()
+
+    public void GenerateRocket()
     {
-        GameObject obj = (GameObject)Resources.Load("soccerBall");
+        GameObject obj = (GameObject)Resources.Load("Rocket_01");
         // Cubeプレハブを元に、インスタンスを生成、
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 90, 0, 0));
+        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         obj.GetComponent<handController>().controlled = true;
     }
-    public void GenerateHammer()
+    public void GenerateDinosaur()
     {
-        GameObject obj = (GameObject)Resources.Load("toypenguin");
+        GameObject obj = (GameObject)Resources.Load("Dinosaur_01");
         // Cubeプレハブを元に、インスタンスを生成、
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 270, 0, 0));
+        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 45, 0, 0));
+
+        obj.transform.Rotate(new Vector3(0, 90, 0)); 
+
+        obj.GetComponent<handController>().controlled = true;
+    }
+    public void GenerateWoodenTrain()
+    {
+        GameObject obj = (GameObject)Resources.Load("WoodenTrain_01_Front");
+        // Cubeプレハブを元に、インスタンスを生成、
+        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0,90, 0, 0));
 
         obj.GetComponent<handController>().controlled = true;
     }
@@ -45,13 +49,13 @@ public class MyButton : MonoBehaviour
     {
 
         count--;
-        UpdateLabel();
+        UpdateLastNumber();
 
       
     }
 
     //パッキングするごとに，数が減っていく
-    void UpdateLabel()
+    void UpdateLastNumber()
     {
         GameObject numberText = transform.Find("number").gameObject;
         numberText.GetComponent<TextMeshProUGUI>().text = count.ToString();
