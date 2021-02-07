@@ -33,14 +33,16 @@ public class handController : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
 
-            GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
+            //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
+            GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
 
-            Instantiate(obj, new Vector3(-0.08f, 1.77f, 0.0f), new Quaternion(0, 0, 0, 0));
+
+            
+            Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         }
 
-       
-       
+          
 
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )
@@ -65,7 +67,6 @@ public class handController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
 
-               
 
                 //rBody.rotation = Quaternion.AngleAxis(90, Vector3.up);
                
