@@ -16,10 +16,12 @@ public class handController : MonoBehaviour
     [SerializeField, TooltipAttribute("爆発の方向を上に")]
     public float upwardsModifier;
 
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        rBody = this.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -31,14 +33,16 @@ public class handController : MonoBehaviour
         {
             this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
 
-            GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
+            //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
+            GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
 
-            Instantiate(obj, new Vector3(-0.08f, 1.77f, 0.0f), new Quaternion(0, 0, 0, 0));
+
+            
+            Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         }
 
-       
-       
+          
 
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )
@@ -56,10 +60,25 @@ public class handController : MonoBehaviour
         {
             this.transform.Translate(0.1f, 0.0f, 0.0f);
         }
-      
+
+
+        if(controlled)
+        {
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+
+
+                //rBody.rotation = Quaternion.AngleAxis(90, Vector3.up);
+               
+                transform.Rotate(new Vector3(0, 0, 1), 30);
+               
+            }
+        }
+
+
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            rBody = this.GetComponent<Rigidbody>();
+           
             rBody.useGravity = true;
 
             controlled = false;
