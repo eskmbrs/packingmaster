@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class handController : MonoBehaviour
+public class HandController : MonoBehaviour
 {
     private Rigidbody rBody;
     
