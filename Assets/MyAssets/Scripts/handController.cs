@@ -35,9 +35,7 @@ public class handController : MonoBehaviour
 
             //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
             GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
-
-
-            
+       
             Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         }
@@ -71,7 +69,11 @@ public class handController : MonoBehaviour
                 //rBody.rotation = Quaternion.AngleAxis(90, Vector3.up);
                
                 transform.Rotate(new Vector3(0, 0, 1), 30);
-               
+
+
+                // TODO: 回転軸を変更できるようにする
+                // TODO: 生成したときの向きを変更できるようにする
+
             }
         }
 

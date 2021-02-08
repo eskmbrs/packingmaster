@@ -20,8 +20,11 @@ public class MyButton : MonoBehaviour
 
     public void GenerateRocket()
     {
+
+        // TODO: 生成したときの向きを変更できるようにする
+
         GameObject obj = (GameObject)Resources.Load("Rocket_01");
-        // Cubeプレハブを元に、インスタンスを生成、
+        
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         obj.GetComponent<handController>().controlled = true;
@@ -29,17 +32,15 @@ public class MyButton : MonoBehaviour
     public void GenerateDinosaur()
     {
         GameObject obj = (GameObject)Resources.Load("Dinosaur_01");
-        // Cubeプレハブを元に、インスタンスを生成、
+        
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 45, 0, 0));
-
-        obj.transform.Rotate(new Vector3(0, 90, 0)); 
 
         obj.GetComponent<handController>().controlled = true;
     }
     public void GenerateWoodenTrain()
     {
         GameObject obj = (GameObject)Resources.Load("WoodenTrain_01_Front");
-        // Cubeプレハブを元に、インスタンスを生成、
+    
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0,90, 0, 0));
 
         obj.GetComponent<handController>().controlled = true;
