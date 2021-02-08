@@ -13,8 +13,18 @@ public class RotateCover_Left : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Transform myTransform = this.transform;
 
+        if (Input.GetKey(KeyCode.B))
+        {
+            CloseBox_Left();
+        }
+
+        
+    }
+
+    void CloseBox_Left()
+    {
+        Transform myTransform = this.transform;
 
         //if(myTransform <= -270)
         //-240 = 120, -270 = 90というように，角度が正の値に修正されるようになっているので，回転が止まらなかった
@@ -25,6 +35,5 @@ public class RotateCover_Left : MonoBehaviour
         }
 
         myTransform.Rotate(0, 0, -5f, Space.World);
-
     }
 }

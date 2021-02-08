@@ -13,6 +13,15 @@ public class RotateCover_Right : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.B))
+        {
+            CloseBox_Right();
+        }
+    
+    }
+
+    void CloseBox_Right()
+    {
         Transform myTransform = this.transform;
 
         if (myTransform.eulerAngles.z >= 270)
@@ -21,9 +30,6 @@ public class RotateCover_Right : MonoBehaviour
         }
 
         myTransform.Rotate(0, 0, 5f);
-    
     }
-
-
 
 }
