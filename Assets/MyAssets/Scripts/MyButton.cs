@@ -27,7 +27,7 @@ public class MyButton : MonoBehaviour
         
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 0, 0, 0));
 
-        obj.GetComponent<handController>().controlled = true;
+        obj.GetComponent<HandController>().controlled = true;
     }
     public void GenerateDinosaur()
     {
@@ -35,7 +35,7 @@ public class MyButton : MonoBehaviour
         
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 45, 0, 0));
 
-        obj.GetComponent<handController>().controlled = true;
+        obj.GetComponent<HandController>().controlled = true;
     }
     public void GenerateWoodenTrain()
     {
@@ -43,7 +43,7 @@ public class MyButton : MonoBehaviour
     
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0,90, 0, 0));
 
-        obj.GetComponent<handController>().controlled = true;
+        obj.GetComponent<HandController>().controlled = true;
     }
 
     public void DecrementNumber()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cursorMover : MonoBehaviour
+public class CursorMover : MonoBehaviour
 {
 
     public Texture2D handCursor;
