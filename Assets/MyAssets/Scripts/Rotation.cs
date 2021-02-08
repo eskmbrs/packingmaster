@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RotateButton : MonoBehaviour
+public class Rotation : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -10,11 +10,14 @@ public class RotateButton : MonoBehaviour
         
     }
 
-
     public void RotateObject()
     {
+
+        // ToDo: 特定のオブジェクトを回転させる実装
+
+        /*
         GameObject ball = GameObject.Find("ragbyBall(Clone)");
-       var ballBool = ball.GetComponent<handController>().controlled;
+        var ballBool = ball.GetComponent<handController>().controlled;
 
 
         if (ballBool)
@@ -22,7 +25,8 @@ public class RotateButton : MonoBehaviour
             ball.transform.Rotate(new Vector3(0, 0, 90));
             
         }
- 
+        */
+
     }
 
 }
