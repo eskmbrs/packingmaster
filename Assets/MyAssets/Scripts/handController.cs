@@ -41,7 +41,6 @@ public class HandController : MonoBehaviour
         }
 
           
-
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )
         {
@@ -59,17 +58,13 @@ public class HandController : MonoBehaviour
             this.transform.Translate(0.1f, 0.0f, 0.0f);
         }
 
-
+        //回転させる
         if(controlled)
         {
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-
-
-                //rBody.rotation = Quaternion.AngleAxis(90, Vector3.up);
                
                 transform.Rotate(new Vector3(0, 0, 1), 30);
-
 
                 // TODO: 回転軸を変更できるようにする
                 // TODO: 生成したときの向きを変更できるようにする

@@ -3002,6 +3002,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 465525766596535013, guid: dab8cc0380940425ab3bb8b420556deb,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 465525766596535013, guid: dab8cc0380940425ab3bb8b420556deb,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2585731916098426356, guid: dab8cc0380940425ab3bb8b420556deb,
         type: 3}
       propertyPath: m_Name
