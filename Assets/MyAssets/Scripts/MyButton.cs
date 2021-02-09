@@ -46,6 +46,15 @@ public class MyButton : MonoBehaviour
         obj.GetComponent<HandController>().controlled = true;
     }
 
+    public void GenerateCoffeeTable()
+    {
+        GameObject obj = (GameObject)Resources.Load("CoffeeTable_01");
+
+        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 90, 0, 0));
+
+        obj.GetComponent<HandController>().controlled = true;
+    }
+
     public void DecrementNumber()
     {
 
