@@ -5,6 +5,10 @@ using UnityEngine;
 public class CloseBox : MonoBehaviour
 {
     MeshRenderer mr;
+
+    [SerializeField]
+    private float _transparentSpeed = 0.01f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +22,13 @@ public class CloseBox : MonoBehaviour
         {
             ReduceTransparent();
         }
+
+
+
     }
 
     void ReduceTransparent() {
-        mr.material.color += new Color(0, 0, 0, 0.01f);
+        mr.material.color += new Color(0, 0, 0, _transparentSpeed);
     }
 
 

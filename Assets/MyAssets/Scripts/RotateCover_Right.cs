@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RotateCover_Right : MonoBehaviour
 {
+    [SerializeField]
+    private float _rotateVerocity = -10f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +32,7 @@ public class RotateCover_Right : MonoBehaviour
             return;
         }
 
-        myTransform.Rotate(0, 0, 5f);
+        myTransform.Rotate(0, 0, _rotateVerocity);
     }
 
 }
