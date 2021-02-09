@@ -24,10 +24,15 @@ public class RotateCover_Left : MonoBehaviour
         }
 
         
+        
     }
+
+    
 
     void CloseBox_Left()
     {
+        // ToDo: 回転スピードを早くすると，カクツク問題を解決する
+        
         Transform myTransform = this.transform;
 
         //if(myTransform <= -270)
