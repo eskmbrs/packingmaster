@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 180255339464520076}
   - component: {fileID: 1556489663254220293}
   - component: {fileID: 3401106780284081017}
-  - component: {fileID: 1618946594744690792}
   - component: {fileID: 348010113686986786}
   m_Layer: 0
   m_Name: DeskLamp_01
@@ -35,8 +34,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 126367440187542232}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2.98, y: -3.72, z: -0.01}
-  m_LocalScale: {x: 2.7083554, y: 2.7083554, z: 2.7083554}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.7083554, y: 3, z: 2.7083554}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -183,19 +182,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 56
   m_CollisionDetection: 0
---- !u!65 &1618946594744690792
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 126367440187542232}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.20293742, y: 0.6118691, z: 0.43793744}
-  m_Center: {x: 0, y: 0.30593455, z: 0.00181488}
 --- !u!114 &348010113686986786
 MonoBehaviour:
   m_ObjectHideFlags: 0
