@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 3687878959572672295}
   - component: {fileID: 8435614152015276963}
   - component: {fileID: 9044075614581584938}
-  - component: {fileID: 7428044393624249783}
   - component: {fileID: 2647670756832187167}
+  - component: {fileID: -567872464078769578}
   m_Layer: 0
   m_Name: Rocket_01
   m_TagString: Untagged
@@ -97,21 +97,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 56
-  m_CollisionDetection: 0
---- !u!64 &7428044393624249783
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4056378685414626696}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2261617655510989506, guid: afa1249c2a6a12048992fe5d0f6677fb, type: 3}
+  m_CollisionDetection: 1
 --- !u!114 &2647670756832187167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,3 +114,16 @@ MonoBehaviour:
   power: 20
   radius: 60
   upwardsModifier: 5
+--- !u!65 &-567872464078769578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4056378685414626696}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2646012, y: 0.45470664, z: 0.24007916}
+  m_Center: {x: 0.0005417019, y: 0.21319418, z: 0.027552307}
