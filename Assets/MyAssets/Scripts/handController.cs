@@ -52,12 +52,14 @@ public class HandController : MonoBehaviour
         // 左に移動
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            this.transform.Translate(-0.1f, 0.0f, 0.0f);
+            //this.transform.Translate(-0.1f, 0.0f, 0.0f);
+            this.transform.position += new Vector3(-0.1f, 0, 0);
         }
         // 右に移動
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            this.transform.Translate(0.1f, 0.0f, 0.0f);
+            //this.transform.Translate(0.1f, 0.0f, 0.0f);
+            this.transform.position += new Vector3(0.1f, 0, 0);
         }
 
         //回転させる
