@@ -14,14 +14,17 @@ public class MyButton : MonoBehaviour
     [SerializeField]
     private float y_DirectionAtGeneration;
 
+    [SerializeField]
+    private int lastNum;
+
     // Start is called before the first frame update
     void Start()
     {
         //個数制限
-        count = 3;
+        count = lastNum;
         UpdateLastNumber();
     }
-
+    
     public void GenerateObject(string objName)
     {
         GameObject obj = (GameObject)Resources.Load(objName);
