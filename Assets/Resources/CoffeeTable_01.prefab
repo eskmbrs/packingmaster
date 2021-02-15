@@ -154,9 +154,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlled: 0
-  power: 0
-  radius: 0
-  upwardsModifier: 0
+  power: 20
+  radius: 60
+  upwardsModifier: 5
 --- !u!64 &7145053302780675236
 MeshCollider:
   m_ObjectHideFlags: 0
