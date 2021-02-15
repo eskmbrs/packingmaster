@@ -8,7 +8,6 @@ public class MyButton : MonoBehaviour
 {
     private int count;
 
-
     [SerializeField]
     string objName;
 
@@ -20,45 +19,6 @@ public class MyButton : MonoBehaviour
         UpdateLastNumber();
     }
 
-
-
-    public void GenerateRocket()
-    {
-
-        // TODO: 生成したときの向きを変更できるようにする
-
-        GameObject obj = (GameObject)Resources.Load("Rocket_01");
-        
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 0, 0, 0));
-
-        obj.GetComponent<HandController>().controlled = true;
-    }
-    public void GenerateDinosaur()
-    {
-        GameObject obj = (GameObject)Resources.Load("Dinosaur_01");
-        
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 45, 0, 0));
-
-        obj.GetComponent<HandController>().controlled = true;
-    }
-    public void GenerateWoodenTrain()
-    {
-        GameObject obj = (GameObject)Resources.Load("WoodenTrain_01_Front");
-    
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0,90, 0, 0));
-
-        obj.GetComponent<HandController>().controlled = true;
-    }
-
-    public void GenerateCoffeeTable()
-    {
-        GameObject obj = (GameObject)Resources.Load("CoffeeTable_01");
-
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 90, 0, 0));
-
-        obj.GetComponent<HandController>().controlled = true;
-    }
-
     public void GenerateObject(string objName)
     {
         GameObject obj = (GameObject)Resources.Load(objName);
@@ -68,15 +28,10 @@ public class MyButton : MonoBehaviour
         obj.GetComponent<HandController>().controlled = true;
     }
 
-    
-
     public void DecrementNumber()
     {
-
         count--;
-        UpdateLastNumber();
-
-      
+        UpdateLastNumber();      
     }
 
     //パッキングするごとに，数が減っていく
