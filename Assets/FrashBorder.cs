@@ -11,10 +11,10 @@ public class FrashBorder : MonoBehaviour
     [SerializeField]
     public float interval = 0.5f;	// 点滅周期
 
-    private float _time_for_interval = 0;
-
     [SerializeField]
     public float duration = 2.0f;
+
+    private float _time_for_interval = 0;
 
     private float _time = 0;
 
@@ -39,13 +39,10 @@ public class FrashBorder : MonoBehaviour
             _time += Time.deltaTime;
             _time_for_interval += Time.deltaTime;
 
-            Debug.Log(_time);
-
             if(_time_for_interval > interval)
             {
                 _time_for_interval = 0;
                 m_SpriteRenderer.enabled = !m_SpriteRenderer.enabled;
-
             }
 
             if(_time > duration)
@@ -61,8 +58,6 @@ public class FrashBorder : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("test");
         isStartFrash = true;
-
     }
 }
