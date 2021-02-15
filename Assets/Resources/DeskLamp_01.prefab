@@ -195,6 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controlled: 1
-  power: 0
-  radius: 0
-  upwardsModifier: 0
+  power: 20
+  radius: 60
+  upwardsModifier: 5

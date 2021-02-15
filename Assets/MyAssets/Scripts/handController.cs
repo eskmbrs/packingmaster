@@ -34,8 +34,9 @@ public class HandController : MonoBehaviour
             this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
 
             //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
-            GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
-       
+            //GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
+            GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFire_noSmoke");
+
             Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
 
         }
