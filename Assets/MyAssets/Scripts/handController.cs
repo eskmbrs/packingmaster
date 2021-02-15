@@ -68,7 +68,7 @@ public class HandController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 //transform.Rotate(new Vector3(0, 0, 1), 30);
-                transform.RotateAround(target, Vector3.forward, 30);
+                transform.RotateAround(target, Vector3.forward, -30);
 
                 // TODO: 回転軸を変更できるようにする
                 // TODO: 生成したときの向きを変更できるようにする
