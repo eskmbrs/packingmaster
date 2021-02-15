@@ -11,6 +11,9 @@ public class MyButton : MonoBehaviour
     [SerializeField]
     string objName;
 
+    [SerializeField]
+    private float y_DirectionAtGeneration;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +26,7 @@ public class MyButton : MonoBehaviour
     {
         GameObject obj = (GameObject)Resources.Load(objName);
 
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), new Quaternion(0, 90, 0, 0));
+        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.Euler(0, y_DirectionAtGeneration, 0));
 
         obj.GetComponent<HandController>().controlled = true;
     }
