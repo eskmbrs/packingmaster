@@ -47,6 +47,7 @@ public class FrashBorder : MonoBehaviour
 
             if(_time > duration)
             {
+                m_SpriteRenderer.enabled = false;
                 isStartFrash = false;
                 _time = 0;
             }
