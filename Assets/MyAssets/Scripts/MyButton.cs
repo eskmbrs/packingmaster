@@ -6,7 +6,10 @@ using TMPro;
 
 public class MyButton : MonoBehaviour
 {
-    private int count;
+  
+
+    [SerializeField]
+    private int lastNum = 3;
 
     [SerializeField]
     string objName;
@@ -17,9 +20,7 @@ public class MyButton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //個数制限
-        count = 3;
-        UpdateLastNumber();
+       UpdateLastNumber();
     }
 
     public void GenerateObject(string objName)
@@ -33,7 +34,7 @@ public class MyButton : MonoBehaviour
 
     public void DecrementNumber()
     {
-        count--;
+        lastNum--;
         UpdateLastNumber();      
     }
 
@@ -41,7 +42,7 @@ public class MyButton : MonoBehaviour
     void UpdateLastNumber()
     {
         GameObject numberText = transform.Find("number").gameObject;
-        numberText.GetComponent<TextMeshProUGUI>().text = count.ToString();
+        numberText.GetComponent<TextMeshProUGUI>().text = lastNum.ToString();
 
     }
 
