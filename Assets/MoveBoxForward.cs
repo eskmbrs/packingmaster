@@ -9,7 +9,7 @@ public class MoveBoxForward : MonoBehaviour
     [SerializeField]
     private float _force = 1.0f;
 
-   
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +20,9 @@ public class MoveBoxForward : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
             _rb.AddForce(new Vector3(0,0,_force));
-           
-        
+
+
     }
 }

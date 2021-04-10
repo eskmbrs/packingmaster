@@ -7,7 +7,7 @@ public class Rotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void RotateObject()
@@ -17,13 +17,13 @@ public class Rotation : MonoBehaviour
 
         /*
         GameObject ball = GameObject.Find("ragbyBall(Clone)");
-        var ballBool = ball.GetComponent<handController>().controlled;
+        var ballBool = ball.GetComponent<HandController>().controlled;
 
 
         if (ballBool)
         {
             ball.transform.Rotate(new Vector3(0, 0, 90));
-            
+
         }
         */
 

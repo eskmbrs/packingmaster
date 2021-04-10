@@ -17,7 +17,7 @@ How to make new colored explosions
 Values saves in realtime.
 
 tips:
-4. You can copy the script component and place it on other explosion prefabs. 
+4. You can copy the script component and place it on other explosion prefabs.
 Make sure to revert the "Colored_Particle_System"'s on the new explosion so you
 are configuring the right components.
 
@@ -34,14 +34,14 @@ Emission can boosted to give out a glow effect (if using bloom script on the Cam
 Shader was made in ShaderForge.
 
 alphaBlend_depthBlend_glow
-Includes a detphBlend component which makes the smoke blend better into the ground. It is a bit more exepensive performence-wise, if there is any problems 
+Includes a detphBlend component which makes the smoke blend better into the ground. It is a bit more exepensive performence-wise, if there is any problems
 use the optimized_glowmaterial shader instead if needed. It just removes the depthBlend option.
 Earlier version of this package used this shader in the explosion. The shader is recommended for higher performence machines because in some cases do not work on mobiles.
 This shader was made in ShaderForge.
 
 v1.01
 Both shaders (optimized_glowMaterial & glow_depthBlend_material) were changed to alphaBlend_glow and alphaBlend_depthBlend_glow were enabled in OpenGLS ES 3.0
-inside Shaderforge which made them work for android phones from 4.4.2(Kit Kat) and tested in Unity from 2.3.1 (Gingerbread). 
+inside Shaderforge which made them work for android phones from 4.4.2(Kit Kat) and tested in Unity from 2.3.1 (Gingerbread).
 I will be testing on more devices when possible.
 Shaders are currently directly from ShaderForge but the explosions uses low resolution textures, carefully placed particles and largest explosion is currently 6 drawcalls.
 

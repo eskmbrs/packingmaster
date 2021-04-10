@@ -11,12 +11,12 @@ public class CursorMover : MonoBehaviour
     {
         //カーソルを変更（動画用）
         Cursor.SetCursor(handCursor,Vector2.zero,CursorMode.Auto);
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

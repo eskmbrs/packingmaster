@@ -21,7 +21,7 @@ Shader "EffectCore/alphaBlend_depthBlend_glow" {
             Blend SrcAlpha OneMinusSrcAlpha
             Cull Off
             ZWrite Off
-            
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
@@ -29,7 +29,7 @@ Shader "EffectCore/alphaBlend_depthBlend_glow" {
             #include "UnityCG.cginc"
             #pragma multi_compile_fwdbase
             #pragma multi_compile_fog
-            #pragma exclude_renderers d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma exclude_renderers d3d11_9x xbox360 xboxone ps3 ps4 psp2
             #pragma target 3.0
             uniform sampler2D _CameraDepthTexture;
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;

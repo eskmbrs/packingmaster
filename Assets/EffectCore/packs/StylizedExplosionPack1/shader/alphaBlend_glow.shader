@@ -19,14 +19,14 @@ Shader "EffectCore/alphaBlend_glow" {
             }
             Blend SrcAlpha OneMinusSrcAlpha
             ZWrite Off
-            
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             #define UNITY_PASS_FORWARDBASE
             #include "UnityCG.cginc"
             #pragma multi_compile_fwdbase
-            #pragma exclude_renderers d3d11_9x xbox360 xboxone ps3 ps4 psp2 
+            #pragma exclude_renderers d3d11_9x xbox360 xboxone ps3 ps4 psp2
             #pragma target 3.0
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
             uniform float _Glow;

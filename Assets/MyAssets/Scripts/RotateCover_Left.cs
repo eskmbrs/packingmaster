@@ -11,7 +11,7 @@ public class RotateCover_Left : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -23,16 +23,14 @@ public class RotateCover_Left : MonoBehaviour
             CloseBox_Left();
         }
 
-        
-        
     }
 
-    
+
 
     void CloseBox_Left()
     {
         // ToDo: 回転スピードを早くすると，カクツク問題を解決する
-        
+
         Transform myTransform = this.transform;
 
         //if(myTransform <= -270)

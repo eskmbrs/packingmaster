@@ -10,7 +10,7 @@ public class ECparticleColorChangerMaster : MonoBehaviour {
     {
         public string Name;
         public ParticleSystem[] colored_ParticleSystem;
-        public Gradient Gradient_custom; 
+        public Gradient Gradient_custom;
     }
     public float Speed_custom = 1;
     public colorChange[] colorChangeList;
@@ -24,7 +24,7 @@ public class ECparticleColorChangerMaster : MonoBehaviour {
     }
 
     void Update()
-     {  
+     {
         if (applyChanges || Keep_applyChanges)
         {
             for (int i = 0; i < colorChangeList.Length; i++)
@@ -44,5 +44,5 @@ public class ECparticleColorChangerMaster : MonoBehaviour {
             applyChanges = false;
         }
      }
-  
+
 }

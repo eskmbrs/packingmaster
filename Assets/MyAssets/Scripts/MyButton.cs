@@ -6,7 +6,6 @@ using TMPro;
 
 public class MyButton : MonoBehaviour
 {
-  
 
     [SerializeField]
     private int lastNum = 3;
@@ -35,7 +34,7 @@ public class MyButton : MonoBehaviour
     public void DecrementNumber()
     {
         lastNum--;
-        UpdateLastNumber();      
+        UpdateLastNumber();
     }
 
     //パッキングするごとに，数が減っていく

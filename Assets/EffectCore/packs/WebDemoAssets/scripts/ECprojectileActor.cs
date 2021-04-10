@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class ECprojectileActor : MonoBehaviour {
 
-    public Transform spawnLocator; 
+    public Transform spawnLocator;
     public Transform spawnLocatorMuzzleFlare;
     public Transform shellLocator;
     public Animator recoilAnimator;
@@ -19,7 +19,7 @@ public class ECprojectileActor : MonoBehaviour {
         public GameObject muzzleflare;
         public float min, max;
         public bool rapidFire;
-        public float rapidFireCooldown;   
+        public float rapidFireCooldown;
 
         public bool shotgunBehavior;
         public int shotgunPellets;
@@ -61,7 +61,7 @@ public class ECprojectileActor : MonoBehaviour {
             UiText.text = bombList[bombType].name.ToString();
         }
 	}
-	
+
 	// Update is called once per frame
 	void Update ()
     {

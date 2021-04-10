@@ -10,7 +10,7 @@ public class RotateCover_Right : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -20,7 +20,6 @@ public class RotateCover_Right : MonoBehaviour
         {
             CloseBox_Right();
         }
-    
     }
 
     void CloseBox_Right()

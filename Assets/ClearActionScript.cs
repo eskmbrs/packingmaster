@@ -39,7 +39,7 @@ public class ClearActionScript : MonoBehaviour
                 Instantiate(leftParticle);
                 Instantiate(rightParticle);
 
-                
+
 
 
 

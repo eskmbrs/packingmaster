@@ -32,7 +32,7 @@ public class ECEffectActor : MonoBehaviour {
     {
         UiText.text = "#" + (bombType + 1) + ". " + bombList[bombType].name.ToString();
     }
-	
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -70,7 +70,7 @@ public class ECEffectActor : MonoBehaviour {
     public void Fire()
     {
         Instantiate(bombList[bombType].bombPrefab, bombList[bombType].bombPrefabTransform.position, bombList[bombType].bombPrefabTransform.rotation);
- 
+
 
        /* if (Torque)
         {

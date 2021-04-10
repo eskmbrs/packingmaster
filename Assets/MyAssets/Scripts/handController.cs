@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandController : MonoBehaviour
 {
     private Rigidbody rBody;
-    
+
     [SerializeField]
     public bool controlled;
 
@@ -42,7 +42,7 @@ public class HandController : MonoBehaviour
 
         }
 
-          
+
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )
         {
@@ -79,16 +79,16 @@ public class HandController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-           
+
             rBody.useGravity = true;
 
             controlled = false;
         }
-  
 
-        
+
+
 
     }
 
-  
+
 }

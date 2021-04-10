@@ -50,7 +50,7 @@ public class ExplodingProjectileExplosion1 : MonoBehaviour
             Explode();
         }
         if (LookRotation)
-        { 
+        {
             transform.rotation = Quaternion.LookRotation(thisRigidbody.velocity);
         }
     }
@@ -99,5 +99,5 @@ public class ExplodingProjectileExplosion1 : MonoBehaviour
         Instantiate(explosionPrefab, gameObject.transform.position, Quaternion.Euler(0, 0, 0));
         Destroy(gameObject);
     }
-    
+
 }
