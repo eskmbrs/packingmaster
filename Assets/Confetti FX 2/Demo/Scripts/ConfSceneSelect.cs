@@ -9,7 +9,7 @@ public class ConfSceneSelect : MonoBehaviour
 	public bool GUIHide = false;
 	public bool GUIHide2 = false;
 	public bool GUIHide3 = false;
-	
+
     public void LoadSceneDemo01()
     {
         SceneManager.LoadScene("Conf01");
@@ -94,14 +94,14 @@ public class ConfSceneSelect : MonoBehaviour
     {
         SceneManager.LoadScene("Conf21");
     }
-	
+
 	void Update ()
 	 {
- 
+
      if(Input.GetKeyDown(KeyCode.J))
 	 {
          GUIHide = !GUIHide;
-     
+
          if (GUIHide)
 		 {
              GameObject.Find("CanvasSceneSelect").GetComponent<Canvas> ().enabled = false;
@@ -114,7 +114,7 @@ public class ConfSceneSelect : MonoBehaviour
 	      if(Input.GetKeyDown(KeyCode.K))
 	 {
          GUIHide2 = !GUIHide2;
-     
+
          if (GUIHide2)
 		 {
              GameObject.Find("Canvas").GetComponent<Canvas> ().enabled = false;
@@ -127,7 +127,7 @@ public class ConfSceneSelect : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.L))
 	 {
          GUIHide3 = !GUIHide3;
-     
+
          if (GUIHide3)
 		 {
              GameObject.Find("CanvasTips").GetComponent<Canvas> ().enabled = false;

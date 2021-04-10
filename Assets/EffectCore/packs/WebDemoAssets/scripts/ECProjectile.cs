@@ -25,10 +25,10 @@ public class EffectCoreProjectile : MonoBehaviour
 	void Start ()
 	{
         // We cache this for performance reasons, GetComponent is slow to do realtime
-        // meshRenderer = GetComponent<MeshRenderer>(); 
+        // meshRenderer = GetComponent<MeshRenderer>();
     //    meshRenderer = GetComponent<MeshRenderer>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 	    if (isActive) // Only update stuff if we're alive
@@ -41,7 +41,7 @@ public class EffectCoreProjectile : MonoBehaviour
 	    //        meshRenderer.enabled = false; // Disable meshrender so it's invisible
 	        }
 
-	        
+
             // 1/distanceToTarget is the calculation to move 1 unit per second, movementspeed defines how many units per second you want to move
 	        movementValue += (1/distanceToTarget*movementSpeed) * Time.deltaTime;
 	        if (movementValue > 1)
@@ -50,7 +50,7 @@ public class EffectCoreProjectile : MonoBehaviour
                 Explode();
 	        }
 	        Move();
-	        
+
 	    }
 	}
 
@@ -69,7 +69,7 @@ public class EffectCoreProjectile : MonoBehaviour
     {
         if (isActive) // If we're active, just return so we don't execute any code
             return;
-        
+
         isActive = true; // Set active
         disappearTimer = 0; // Reset timer just in case it's not reset
         transform.position = spawnPosition; // set spawn position
@@ -83,7 +83,7 @@ public class EffectCoreProjectile : MonoBehaviour
     }
 
     // It gets here after it hits something
-    void Explode() 
+    void Explode()
     {
         disappearTimer = 0; // Reset timer
         isActive = false; // Is not active anymore

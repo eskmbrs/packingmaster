@@ -36,7 +36,7 @@ public class ECCameraShake : MonoBehaviour
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
             shakeDuration -= Time.deltaTime * decreaseFactor;
-            
+
         }
         if (shakeAmount > 0)
         {
