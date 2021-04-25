@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MyAssets/Scenes/VideoAds.unity
+    guid: 95c3d139cf994474787df040100afa91
+  m_configObjects: {}
