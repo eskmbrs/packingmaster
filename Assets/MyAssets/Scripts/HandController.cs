@@ -17,12 +17,13 @@ public class HandController : MonoBehaviour
     public float upwardsModifier;
 
     private Vector3 target = new Vector3(-2f, 4.8f, 0.0f);
+    private GameController gameController;
 
-    // Start is called before the first frame update
-    void Start()
+  // Start is called before the first frame update
+  void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
-
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     // Update is called once per frame
@@ -32,6 +33,7 @@ public class HandController : MonoBehaviour
         //爆発のエフェクト
         if (Input.GetKeyDown(KeyCode.A))
         {
+            gameController.CallGameOver();
             this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
 
             //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
