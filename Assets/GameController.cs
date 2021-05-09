@@ -13,7 +13,6 @@ public class GameController : MonoBehaviour
         startPanel = GameObject.Find("Canvas/StartPanel");
         gameOverPanel = GameObject.Find("Canvas/GameOverPanel");
         gameClearPanel = GameObject.Find("Canvas/GameClearPanel");
-
     }
 
     // Start is called before the first frame update
@@ -33,6 +32,11 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameStart());
     }
 
+    public void CallGameRestart()
+    {
+        StartCoroutine(GameRestart());
+    }
+
     public void CallGameOver()
     {
         StartCoroutine(GameOver());
@@ -48,10 +52,19 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(true);
+        gameClearPanel.gameObject.SetActive(false);
+        yield break;
+    }
+
+    IEnumerator GameRestart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(false);
         gameClearPanel.gameObject.SetActive(false);
         yield break;
-  }
+    }
 
     IEnumerator GameOver()
     {
