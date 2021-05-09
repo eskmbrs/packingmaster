@@ -52,7 +52,7 @@ public class GameController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
-        gameOverPanel.gameObject.SetActive(true);
+        gameOverPanel.gameObject.SetActive(false);
         gameClearPanel.gameObject.SetActive(false);
         yield break;
     }

@@ -44,7 +44,7 @@ public class GameOverPanel : MonoBehaviour
 
     IEnumerator EnableSequencialy()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         failedSeal1.gameObject.SetActive(true);
         yield return new WaitForSeconds(0.3f);
         failedSeal2.gameObject.SetActive(true);
