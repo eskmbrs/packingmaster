@@ -26,13 +26,11 @@ public class GameController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {}
+
+    public void CallGameStart()
     {
-        if (Input.GetMouseButton(0))
-        {
-            startPanel.gameObject.SetActive(false);
-            gameOverPanel.gameObject.SetActive(false);
-            gameClearPanel.gameObject.SetActive(false);
-        }
+        StartCoroutine(GameStart());
     }
 
     public void CallGameOver()
@@ -45,6 +43,15 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameClear());
 
     }
+
+    IEnumerator GameStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        startPanel.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(false);
+        gameClearPanel.gameObject.SetActive(false);
+        yield break;
+  }
 
     IEnumerator GameOver()
     {
