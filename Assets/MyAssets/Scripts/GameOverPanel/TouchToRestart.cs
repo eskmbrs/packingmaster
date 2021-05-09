@@ -6,13 +6,14 @@ using TMPro;
 
 public class TouchToRestart : MonoBehaviour
 {
-  public float speed = 0.1f;
+  public float speed = 0.6f;
 
   private TextMeshProUGUI text;
   private float time;
 
 
   void Start() {
+    time = 0;
     text = this.gameObject.GetComponent<TextMeshProUGUI>();
   }
 
