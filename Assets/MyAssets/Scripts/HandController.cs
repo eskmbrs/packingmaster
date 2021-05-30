@@ -44,6 +44,12 @@ public class HandController : MonoBehaviour
 
         }
 
+        // Game Clear
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            gameController.CallGameClear();
+        }
+
 
         //箱の中なら操作を無視（物理エンジンに任せる）
         if (this.transform.position.y < 2 )

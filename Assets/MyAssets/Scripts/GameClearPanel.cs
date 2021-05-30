@@ -7,9 +7,9 @@ public class GameClearPanel : MonoBehaviour
     private GameController gameController;
 
 
-  void Awake() {
+    void Awake() {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
-  }
+    }
 
     void Update() {
     }
@@ -23,6 +23,14 @@ public class GameClearPanel : MonoBehaviour
 
     IEnumerator EnableSequencialy()
     {
+        blowConfetti();
         yield break;
+    }
+
+    void blowConfetti() {
+        GameObject leftParticle = (GameObject)Resources.Load("LeftParticle");
+        GameObject rightParticle = (GameObject)Resources.Load("RightParticle");
+        Instantiate(leftParticle);
+        Instantiate(rightParticle);
     }
 }

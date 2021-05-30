@@ -30,20 +30,6 @@ public class ClearActionScript : MonoBehaviour
             // ToDo: ガムテープを貼るアクション
 
             // ToDo: 紙吹雪
-            //爆発のエフェクト
-            if (Input.GetKeyDown(KeyCode.B))
-            {
-                GameObject leftParticle = (GameObject)Resources.Load("LeftParticle");
-                GameObject rightParticle = (GameObject)Resources.Load("RightParticle");
-
-                Instantiate(leftParticle);
-                Instantiate(rightParticle);
-
-
-
-
-
-            }
         }
     }
 }
