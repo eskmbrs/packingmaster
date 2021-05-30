@@ -22,22 +22,17 @@ public class HandController : MonoBehaviour
     private RotateButton rotateButton;
     private MoveButton moveButton;
 
-    private ButtonController buttonController;
-
     private bool isMoved = false;
+    private float insideBox = 2.8f;
 
-  // Start is called before the first frame update
-  void Start()
+    void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         rotateButton = GameObject.Find("Canvas/RotateButton").GetComponent<RotateButton>();
         moveButton = GameObject.Find("Canvas/MoveButton").GetComponent<MoveButton>();
-
-        buttonController = GameObject.Find("ButtonController").GetComponent<ButtonController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -52,28 +47,30 @@ public class HandController : MonoBehaviour
         {
             gameController.CallGameClear();
         }
-         
+
         //回転させる
         if(controlled)
         {
             if (rotateButton.IsRotating)
             {
-                transform.RotateAround(target, Vector3.forward, -7);              
+                transform.RotateAround(target, Vector3.forward, -7);
 
             }
 
             if (moveButton.IsMoving)
             {
-                this.transform.position += new Vector3(0.1f, 0, 0);
+                if (this.transform.position.x < insideBox) {
+                    this.transform.position += new Vector3(0.1f, 0, 0);
+                }
                 isMoved = true;
             }
 
-            if(buttonController.state == State.generateMode && isMoved)
+            if(isMoved && !moveButton.IsMoving)
             {
                 DropObject();
             }
         }
-      
+
     }
 
     private void ExplodeObject()
