@@ -57,7 +57,10 @@ public class GenerateObjectButton : MonoBehaviour
 
     public void Activate()
     {
-        btn.interactable = true;
+        if(lastNum > 0)
+        {
+            btn.interactable = true;
+        }
     }
 
     public void Deactivate()

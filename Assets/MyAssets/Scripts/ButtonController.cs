@@ -11,8 +11,6 @@ public class ButtonController : MonoBehaviour
     public RotateButton rotateButton;
     public MoveButton moveButton;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         generateObjectButton1 = GameObject.Find("Canvas/GenerateObjectButton1").GetComponent<GenerateObjectButton>();
@@ -24,10 +22,8 @@ public class ButtonController : MonoBehaviour
         GenerateMode();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
     }
 
     public void GenerateMode()
@@ -56,6 +52,4 @@ public class ButtonController : MonoBehaviour
         rotateButton.Deactivate();
         moveButton.Activate();
     }
-
-
 }
