@@ -19,11 +19,17 @@ public class HandController : MonoBehaviour
     private Vector3 target = new Vector3(-2f, 4.8f, 0.0f);
     private GameController gameController;
 
+    private RotateButton rotateButton;
+    private MoveButton moveButton;
+
   // Start is called before the first frame update
   void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        rotateButton = GameObject.Find("Canvas/RotateButton").GetComponent<RotateButton>();
+        moveButton = GameObject.Find("Canvas/MoveButton").GetComponent<MoveButton>();
+
     }
 
     // Update is called once per frame
@@ -57,6 +63,11 @@ public class HandController : MonoBehaviour
             return;
         }
 
+        if (moveButton.IsMoving)
+        {
+            this.transform.position += new Vector3(0.1f, 0, 0);
+        }
+
         // 左に移動
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -73,18 +84,12 @@ public class HandController : MonoBehaviour
         //回転させる
         if(controlled)
         {
-            if (Input.GetKeyDown(KeyCode.UpArrow))
+            if (rotateButton.IsRotating)
             {
-                //transform.Rotate(new Vector3(0, 0, 1), 30);
-                transform.RotateAround(target, Vector3.forward, -30);
-
-                // TODO: 回転軸を変更できるようにする
-                // TODO: 生成したときの向きを変更できるようにする
-
+                transform.RotateAround(target, Vector3.forward, -7);              
             }
         }
-
-
+      
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
 
@@ -96,6 +101,11 @@ public class HandController : MonoBehaviour
 
 
 
+    }
+
+    public void RotateThisObject()
+    {
+        transform.RotateAround(target, Vector3.forward, -30);
     }
 
 
