@@ -25,7 +25,7 @@ public class CloseBox : MonoBehaviour
 
     }
 
-    void ReduceTransparent() {
+    public void ReduceTransparent() {
         mr.material.color += new Color(0, 0, 0, _transparentSpeed);
     }
 

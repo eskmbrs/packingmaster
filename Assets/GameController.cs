@@ -37,6 +37,11 @@ public class GameController : MonoBehaviour
         StartCoroutine(GameRestart());
     }
 
+    public void CallNextGame()
+    {
+        StartCoroutine(NextGame());
+    }
+
     public void CallGameOver()
     {
         StartCoroutine(GameOver());
@@ -58,6 +63,15 @@ public class GameController : MonoBehaviour
     }
 
     IEnumerator GameRestart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        startPanel.gameObject.SetActive(false);
+        gameOverPanel.gameObject.SetActive(false);
+        gameClearPanel.gameObject.SetActive(false);
+        yield break;
+    }
+
+    IEnumerator NextGame()
     {
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
