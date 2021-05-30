@@ -4,29 +4,25 @@ using UnityEngine;
 
 public class Rotation : MonoBehaviour
 {
+    public bool IsRotating = false;
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    public void RotateObject()
+    public void StartToRotate()
     {
-
-        // ToDo: 特定のオブジェクトを回転させる実装
-
-        /*
-        GameObject ball = GameObject.Find("ragbyBall(Clone)");
-        var ballBool = ball.GetComponent<HandController>().controlled;
-
-
-        if (ballBool)
-        {
-            ball.transform.Rotate(new Vector3(0, 0, 90));
-
-        }
-        */
-
+        IsRotating = true;
+        Debug.Log("isrotating");
     }
+
+    public void StopRotating()
+    {
+        IsRotating = false;
+        Debug.Log("away");
+    }
+
 
 }
