@@ -11,7 +11,7 @@ public class GameOverPanel : MonoBehaviour
     private GameObject blackHatching;
     private GameObject touchToRestart;
     private bool readyToTouch;
-    private bool forTheFirstTime = true;
+    private bool forTheFirstTime;
 
 
     void Awake() {
@@ -21,12 +21,8 @@ public class GameOverPanel : MonoBehaviour
         failedStamp = GameObject.Find("Canvas/GameOverPanel/FailedStamp");
         blackHatching = GameObject.Find("Canvas/GameOverPanel/BlackHatching");
         touchToRestart = GameObject.Find("Canvas/GameOverPanel/TouchToRestart");
-    }
-
-    void Start() {
-        forTheFirstTime = false;
-    }
-
+        forTheFirstTime = true;
+  }
 
     void Update() {
         if (readyToTouch & Input.GetMouseButton(0)) {
@@ -35,14 +31,17 @@ public class GameOverPanel : MonoBehaviour
     }
 
     void OnEnable() {
-        if (forTheFirstTime) {return;};
-
         readyToTouch = false;
         failedSeal1.gameObject.SetActive(false);
         failedSeal2.gameObject.SetActive(false);
         failedStamp.gameObject.SetActive(false);
         blackHatching.gameObject.SetActive(false);
         touchToRestart.gameObject.SetActive(false);
+
+        if (forTheFirstTime) {
+            forTheFirstTime = false;
+            return;
+        };
         StartCoroutine(EnableSequencialy());
     }
 
