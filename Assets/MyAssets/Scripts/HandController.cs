@@ -22,6 +22,10 @@ public class HandController : MonoBehaviour
     private RotateButton rotateButton;
     private MoveButton moveButton;
 
+    private ButtonController buttonController;
+
+    private bool isMoved = false;
+
   // Start is called before the first frame update
   void Start()
     {
@@ -30,6 +34,7 @@ public class HandController : MonoBehaviour
         rotateButton = GameObject.Find("Canvas/RotateButton").GetComponent<RotateButton>();
         moveButton = GameObject.Find("Canvas/MoveButton").GetComponent<MoveButton>();
 
+        buttonController = GameObject.Find("ButtonController").GetComponent<ButtonController>();
     }
 
     // Update is called once per frame
@@ -39,15 +44,7 @@ public class HandController : MonoBehaviour
         //爆発のエフェクト
         if (Input.GetKeyDown(KeyCode.A))
         {
-            gameController.CallGameOver();
-            this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
-
-            //GameObject obj = (GameObject)Resources.Load("ExplosionEffect");
-            //GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFireNoSmoke_ShaderGraph");
-            GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFire_noSmoke");
-
-            Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
-
+            ExplodeObject();
         }
 
         // Game Clear
@@ -55,58 +52,44 @@ public class HandController : MonoBehaviour
         {
             gameController.CallGameClear();
         }
-
-
-        //箱の中なら操作を無視（物理エンジンに任せる）
-        if (this.transform.position.y < 2 )
-        {
-            return;
-        }
-
-        if (moveButton.IsMoving)
-        {
-            this.transform.position += new Vector3(0.1f, 0, 0);
-        }
-
-        // 左に移動
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            //this.transform.Translate(-0.1f, 0.0f, 0.0f);
-            this.transform.position += new Vector3(-0.1f, 0, 0);
-        }
-        // 右に移動
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            //this.transform.Translate(0.1f, 0.0f, 0.0f);
-            this.transform.position += new Vector3(0.1f, 0, 0);
-        }
-
+         
         //回転させる
         if(controlled)
         {
             if (rotateButton.IsRotating)
             {
                 transform.RotateAround(target, Vector3.forward, -7);              
+
+            }
+
+            if (moveButton.IsMoving)
+            {
+                this.transform.position += new Vector3(0.1f, 0, 0);
+                isMoved = true;
+            }
+
+            if(buttonController.state == State.generateMode && isMoved)
+            {
+                DropObject();
             }
         }
       
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-
-            rBody.useGravity = true;
-
-            controlled = false;
-        }
-
-
-
-
     }
 
-    public void RotateThisObject()
+    private void ExplodeObject()
     {
-        transform.RotateAround(target, Vector3.forward, -30);
+        gameController.CallGameOver();
+        this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
+
+        GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFire_noSmoke");
+        Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
+
     }
 
+    public void DropObject()
+    {
+        rBody.useGravity = true;
+        controlled = false;
+    }
 
 }

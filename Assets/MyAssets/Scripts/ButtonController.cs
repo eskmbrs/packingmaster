@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum State
+{
+    generateMode = 0,
+    rotateMode = 1,
+    movingMode = 2,
+}
+
 public class ButtonController : MonoBehaviour
 {
     public GenerateObjectButton generateObjectButton1;
@@ -11,6 +18,7 @@ public class ButtonController : MonoBehaviour
     public RotateButton rotateButton;
     public MoveButton moveButton;
 
+    public State state;
 
     // Start is called before the first frame update
     void Start()
@@ -32,20 +40,27 @@ public class ButtonController : MonoBehaviour
 
     public void GenerateMode()
     {
+        state = State.generateMode;
+
         generateObjectButton1.Activate();
         generateObjectButton2.Activate();
         generateObjectButton3.Activate();
         rotateButton.Deactivate();
         moveButton.Deactivate();
+
     }
 
     public void RotateMode()
     {
+        state = State.rotateMode;
+
         generateObjectButton1.Deactivate();
         generateObjectButton2.Deactivate();
         generateObjectButton3.Deactivate();
         rotateButton.Activate();
         moveButton.Deactivate();
+
+        
     }
 
     public void MoveMode()
@@ -55,6 +70,8 @@ public class ButtonController : MonoBehaviour
         generateObjectButton3.Deactivate();
         rotateButton.Deactivate();
         moveButton.Activate();
+
+        state = State.movingMode;
     }
 
 
