@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
-public class MyButton : MonoBehaviour
+public class GenerateObjectButton : MonoBehaviour
 {
 
     [SerializeField]
@@ -15,6 +16,13 @@ public class MyButton : MonoBehaviour
 
     [SerializeField]
     private float y_DirectionAtGeneration;
+
+    private Button btn;
+
+    private void Awake()
+    {
+       btn = GetComponent<Button>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +37,11 @@ public class MyButton : MonoBehaviour
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.Euler(0, y_DirectionAtGeneration, 0));
 
         obj.GetComponent<HandController>().controlled = true;
+
+        DecrementNumber();
     }
 
-    public void DecrementNumber()
+    private void DecrementNumber()
     {
         lastNum--;
         UpdateLastNumber();
@@ -43,6 +53,16 @@ public class MyButton : MonoBehaviour
         GameObject numberText = transform.Find("number").gameObject;
         numberText.GetComponent<TextMeshProUGUI>().text = lastNum.ToString();
 
+    }
+
+    public void Activate()
+    {
+        btn.interactable = true;
+    }
+
+    public void Deactivate()
+    {
+        btn.interactable = false;
     }
 
 }
