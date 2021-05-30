@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameClearPanel : MonoBehaviour
 {
     private GameController gameController;
+    private GameObject boxController;
+    private GameObject clearStamp;
     private bool forTheFirstTime;
 
 
     void Awake() {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        boxController = GameObject.Find("Canvas/GameClearPanel/BoxController");
+        clearStamp = GameObject.Find("Canvas/GameClearPanel/GameClear");
         forTheFirstTime = true;
     }
 
@@ -17,6 +21,9 @@ public class GameClearPanel : MonoBehaviour
     }
 
     void OnEnable() {
+        boxController.gameObject.SetActive(false);
+        clearStamp.gameObject.SetActive(false);
+
         if (forTheFirstTime) {
             forTheFirstTime = false;
             return;
@@ -31,6 +38,10 @@ public class GameClearPanel : MonoBehaviour
     IEnumerator EnableSequencialy()
     {
         blowConfetti();
+        yield return new WaitForSeconds(0.3f);
+        boxController.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1.0f);
+        clearStamp.gameObject.SetActive(true);
         yield break;
     }
 
