@@ -11,16 +11,22 @@ public class GameOverPanel : MonoBehaviour
     private GameObject blackHatching;
     private GameObject touchToRestart;
     private bool readyToTouch;
+    private bool forTheFirstTime = true;
 
 
-  void Awake() {
+    void Awake() {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         failedSeal1 = GameObject.Find("Canvas/GameOverPanel/FailedSeal1");
         failedSeal2 = GameObject.Find("Canvas/GameOverPanel/FailedSeal2");
         failedStamp = GameObject.Find("Canvas/GameOverPanel/FailedStamp");
         blackHatching = GameObject.Find("Canvas/GameOverPanel/BlackHatching");
         touchToRestart = GameObject.Find("Canvas/GameOverPanel/TouchToRestart");
-  }
+    }
+
+    void Start() {
+        forTheFirstTime = false;
+    }
+
 
     void Update() {
         if (readyToTouch & Input.GetMouseButton(0)) {
@@ -29,6 +35,8 @@ public class GameOverPanel : MonoBehaviour
     }
 
     void OnEnable() {
+        if (forTheFirstTime) {return;};
+
         readyToTouch = false;
         failedSeal1.gameObject.SetActive(false);
         failedSeal2.gameObject.SetActive(false);

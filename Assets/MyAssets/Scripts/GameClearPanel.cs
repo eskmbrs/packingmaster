@@ -5,16 +5,23 @@ using UnityEngine;
 public class GameClearPanel : MonoBehaviour
 {
     private GameController gameController;
+    private bool forTheFirstTime = true;
 
 
     void Awake() {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
+    void Start() {
+        forTheFirstTime = false;
+    }
+
     void Update() {
     }
 
     void OnEnable() {
+        if (forTheFirstTime) {return;};
+
         StartCoroutine(EnableSequencialy());
     }
 
