@@ -7,22 +7,32 @@ public class GameClearPanel : MonoBehaviour
     private GameController gameController;
     private GameObject boxController;
     private GameObject clearStamp;
+    private GameObject blackHatching;
+    private GameObject touchToNextGame;
     private bool forTheFirstTime;
+    private bool readyToTouch;
 
 
     void Awake() {
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
         boxController = GameObject.Find("Canvas/GameClearPanel/BoxController");
         clearStamp = GameObject.Find("Canvas/GameClearPanel/GameClear");
+        blackHatching = GameObject.Find("Canvas/GameClearPanel/BlackHatching");
+        touchToNextGame = GameObject.Find("Canvas/GameClearPanel/TouchToNextGame");
         forTheFirstTime = true;
     }
 
     void Update() {
+        if (readyToTouch & Input.GetMouseButton(0)) {
+            gameController.CallNextGame();;
+        }
     }
 
     void OnEnable() {
         boxController.gameObject.SetActive(false);
         clearStamp.gameObject.SetActive(false);
+        blackHatching.gameObject.SetActive(false);
+        touchToNextGame.gameObject.SetActive(false);
 
         if (forTheFirstTime) {
             forTheFirstTime = false;
@@ -33,6 +43,7 @@ public class GameClearPanel : MonoBehaviour
     }
 
     void OnDisable() {
+        readyToTouch = false;
     }
 
     IEnumerator EnableSequencialy()
@@ -42,6 +53,11 @@ public class GameClearPanel : MonoBehaviour
         boxController.gameObject.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         clearStamp.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.7f);
+        blackHatching.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.2f);
+        touchToNextGame.gameObject.SetActive(true);
+        readyToTouch = true;
         yield break;
     }
 
