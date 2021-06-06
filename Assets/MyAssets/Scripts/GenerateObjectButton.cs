@@ -32,13 +32,15 @@ public class GenerateObjectButton : MonoBehaviour
 
     public void GenerateObject(string objName)
     {
+        DecrementNumber();
+
         GameObject obj = (GameObject)Resources.Load(objName);
 
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.Euler(0, y_DirectionAtGeneration, 0));
 
         obj.GetComponent<HandController>().controlled = true;
 
-        DecrementNumber();
+        
     }
 
     private void DecrementNumber()
