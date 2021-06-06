@@ -9,7 +9,7 @@ public class GenerateObjectButton : MonoBehaviour
 {
 
     [SerializeField]
-    private int lastNum = 3;
+    public int lastNum = 3;
 
     [SerializeField]
     string objName;
@@ -17,7 +17,7 @@ public class GenerateObjectButton : MonoBehaviour
     [SerializeField]
     private float y_DirectionAtGeneration;
 
-    private Button btn;
+    public Button btn;
 
     private void Awake()
     {
@@ -32,13 +32,15 @@ public class GenerateObjectButton : MonoBehaviour
 
     public void GenerateObject(string objName)
     {
+        DecrementNumber();
+
         GameObject obj = (GameObject)Resources.Load(objName);
 
         Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.Euler(0, y_DirectionAtGeneration, 0));
 
         obj.GetComponent<HandController>().controlled = true;
 
-        DecrementNumber();
+        
     }
 
     private void DecrementNumber()
