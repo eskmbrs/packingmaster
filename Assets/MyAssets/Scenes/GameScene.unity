@@ -1278,6 +1278,7 @@ MonoBehaviour:
   startPanel: {fileID: 0}
   gameOverPanel: {fileID: 0}
   gameClearPanel: {fileID: 0}
+  isStart: 0
 --- !u!4 &369724449
 Transform:
   m_ObjectHideFlags: 0
