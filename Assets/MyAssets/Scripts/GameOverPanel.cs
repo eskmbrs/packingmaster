@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverPanel : MonoBehaviour
 {
@@ -26,7 +27,8 @@ public class GameOverPanel : MonoBehaviour
 
     void Update() {
         if (readyToTouch & Input.GetMouseButton(0)) {
-            gameController.CallGameRestart();;
+            //gameController.CallGameRestart();
+            SceneManager.LoadScene("GameScene");
         }
     }
 
