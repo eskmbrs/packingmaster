@@ -8,6 +8,9 @@ public class GameController : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameClearPanel;
 
+    [SerializeField]
+    private bool isStart = false;
+
     private void Awake()
     {
         startPanel = GameObject.Find("Canvas/StartPanel");
@@ -18,7 +21,7 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        startPanel.gameObject.SetActive(true);
+        startPanel.gameObject.SetActive(isStart);
         gameOverPanel.gameObject.SetActive(false);
         gameClearPanel.gameObject.SetActive(false);
     }
