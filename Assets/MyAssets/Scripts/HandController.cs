@@ -19,18 +19,38 @@ public class HandController : MonoBehaviour
     private Vector3 target = new Vector3(-2f, 4.8f, 0.0f);
     private GameController gameController;
 
+    public GenerateObjectButton generateObjectButton1;
+    public GenerateObjectButton generateObjectButton2;
+    public GenerateObjectButton generateObjectButton3;
     private RotateButton rotateButton;
     private MoveButton moveButton;
 
     private bool isMoved = false;
+    
     private float insideBox = 2.8f;
+    private float insideBox_top = 0.8f;
+
+    private int clear_count_int = 0;
+    private int failure_count_int = 0;
+
+    [SerializeField]
+    private bool isLastObject = false;
 
     void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+        generateObjectButton1 = GameObject.Find("Canvas/GenerateObjectButton1").GetComponent<GenerateObjectButton>();
+        generateObjectButton2 = GameObject.Find("Canvas/GenerateObjectButton2").GetComponent<GenerateObjectButton>();
+        generateObjectButton3 = GameObject.Find("Canvas/GenerateObjectButton3").GetComponent<GenerateObjectButton>();
         rotateButton = GameObject.Find("Canvas/RotateButton").GetComponent<RotateButton>();
         moveButton = GameObject.Find("Canvas/MoveButton").GetComponent<MoveButton>();
+
+        //　最後のオブジェクトなら，lastObject==true
+        if (generateObjectButton1.lastNum == 0 && generateObjectButton2.lastNum == 0 && generateObjectButton3.lastNum == 0)
+        {
+            isLastObject = true;
+        }
     }
 
     void Update()
@@ -47,6 +67,30 @@ public class HandController : MonoBehaviour
         {
             gameController.CallGameClear();
         }
+            //クリア判定
+            //最後のオブジェクトが，ボックス内にある時
+            if (isLastObject && transform.position.y < insideBox_top)
+        {
+            clear_count_int++;
+            if (clear_count_int > 50)
+            {
+                gameController.CallGameClear();
+            }
+        }
+
+        //Failure判定
+        //重力がかかっていて，上にはみ出している時
+        if(!controlled && transform.position.y > insideBox_top)
+        {
+            failure_count_int++;
+            if(failure_count_int > 100)
+            {
+                ExplodeObject();
+                controlled = true;
+                failure_count_int = 0;
+            }
+        }
+
 
         //回転させる
         if(controlled)
