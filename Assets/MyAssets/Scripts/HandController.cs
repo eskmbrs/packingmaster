@@ -55,21 +55,9 @@ public class HandController : MonoBehaviour
 
     void Update()
     {
-
-        //爆発のエフェクト
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ExplodeObject();
-        }
-
-        //Game Clear
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            gameController.CallGameClear();
-        }
-            //クリア判定
-            //最後のオブジェクトが，ボックス内にある時
-            if (isLastObject && transform.position.y < insideBox_top)
+        //クリア判定
+        //最後のオブジェクトが，ボックス内にある時
+        if (isLastObject && transform.position.y < insideBox_top)
         {
             clear_count_int++;
             if (clear_count_int > 50)
