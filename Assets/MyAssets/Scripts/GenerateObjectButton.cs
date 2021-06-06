@@ -9,7 +9,7 @@ public class GenerateObjectButton : MonoBehaviour
 {
 
     [SerializeField]
-    private int lastNum = 3;
+    public int lastNum = 3;
 
     [SerializeField]
     string objName;
@@ -17,7 +17,7 @@ public class GenerateObjectButton : MonoBehaviour
     [SerializeField]
     private float y_DirectionAtGeneration;
 
-    private Button btn;
+    public Button btn;
 
     private void Awake()
     {
