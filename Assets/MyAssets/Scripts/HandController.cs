@@ -36,6 +36,9 @@ public class HandController : MonoBehaviour
     [SerializeField]
     private bool isLastObject = false;
 
+    private bool forTheFirstTime_explode = true;
+
+
     void Start()
     {
         rBody = this.GetComponent<Rigidbody>();
@@ -74,7 +77,11 @@ public class HandController : MonoBehaviour
             if(failure_count_int > 100)
             {
                 gameController.CallGameOver();
-                ExplodeObject();
+                if (forTheFirstTime_explode)
+                {
+                    ExplodeObject();
+                    forTheFirstTime_explode = false;
+                }
                 controlled = true;
                 failure_count_int = 0;
             }
