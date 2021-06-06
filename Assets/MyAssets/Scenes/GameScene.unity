@@ -1982,9 +1982,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe899fd664e5434eb582686144a3755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastNum: 3
+  lastNum: 1
   objName: CoffeeTable_01
   y_DirectionAtGeneration: 0
+  btn: {fileID: 0}
 --- !u!114 &716109289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3599,9 +3600,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe899fd664e5434eb582686144a3755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastNum: 3
+  lastNum: 1
   objName: TeddyBear_01
   y_DirectionAtGeneration: 180
+  btn: {fileID: 0}
 --- !u!114 &1085080223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4443,9 +4445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe899fd664e5434eb582686144a3755, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastNum: 3
+  lastNum: 1
   objName: DeskLamp_01
   y_DirectionAtGeneration: 270
+  btn: {fileID: 0}
 --- !u!114 &1651496216
 MonoBehaviour:
   m_ObjectHideFlags: 0
