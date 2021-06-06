@@ -62,7 +62,7 @@ public class HandController : MonoBehaviour
             ExplodeObject();
         }
 
-        // Game Clear
+        //Game Clear
         if (Input.GetKeyDown(KeyCode.P))
         {
             gameController.CallGameClear();
@@ -85,6 +85,7 @@ public class HandController : MonoBehaviour
             failure_count_int++;
             if(failure_count_int > 100)
             {
+                gameController.CallGameOver();
                 ExplodeObject();
                 controlled = true;
                 failure_count_int = 0;
@@ -119,12 +120,11 @@ public class HandController : MonoBehaviour
 
     private void ExplodeObject()
     {
-        gameController.CallGameOver();
+        //吹っ飛ぶ力を加える
         this.GetComponent<Rigidbody>().AddExplosionForce(power, new Vector3(0f, 0f, 0f), radius, upwardsModifier, ForceMode.Impulse);
-
+        //爆発のパーティクルエフェクト
         GameObject obj = (GameObject)Resources.Load("explosion_stylized_large_originalFire_noSmoke");
         Instantiate(obj, new Vector3(0f, 0f, 0.0f), new Quaternion(0, 0, 0, 0));
-
     }
 
     public void DropObject()
