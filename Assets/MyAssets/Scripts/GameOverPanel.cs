@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using GoogleMobileAds.Api;
 
 public class GameOverPanel : MonoBehaviour
 {
@@ -26,15 +24,10 @@ public class GameOverPanel : MonoBehaviour
         forTheFirstTime = true;
     }
 
-    public void Start() {
-        // Initialize the Google Mobile Ads SDK
-        MobileAds.Initialize(initStatus => { });
-    }
-
     void Update() {
         if (readyToTouch & Input.GetMouseButton(0)) {
-            //gameController.CallGameRestart();
-            SceneManager.LoadScene("GameScene");
+            gameController.CallGameRestart();
+            
         }
     }
 
