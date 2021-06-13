@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class RotateButton : MonoBehaviour
 {
     public bool IsRotating = false;
-    private Button btn;
+    public Button btn;
 
     private void Awake()
     {
@@ -15,12 +15,16 @@ public class RotateButton : MonoBehaviour
 
     public void StartToRotate()
     {
+        if (!btn.interactable) return;
+
         IsRotating = true;
         Debug.Log("isrotating");
     }
 
     public void StopRotating()
     {
+        if (!btn.interactable) return;
+
         IsRotating = false;
         Debug.Log("away");
     }
