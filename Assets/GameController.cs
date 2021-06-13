@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using GoogleMobileAds.Api;
+using UnityEngine.SceneManagement;
+
 
 public class GameController : MonoBehaviour
 {
@@ -72,10 +74,12 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameRestart()
     {
+        this.interstitial.Destroy();
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(false);
         gameClearPanel.gameObject.SetActive(false);
+        SceneManager.LoadScene("GameScene");
         yield break;
     }
 
@@ -93,8 +97,9 @@ public class GameController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if (this.interstitial.IsLoaded()) {
             this.interstitial.Show();
+            yield return new WaitForSeconds(1.0f);
         }
-
+        
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
