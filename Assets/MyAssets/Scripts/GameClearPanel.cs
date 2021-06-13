@@ -26,7 +26,7 @@ public class GameClearPanel : MonoBehaviour
     void Update() {
         if (readyToTouch & Input.GetMouseButton(0)) {
             //gameController.CallNextGame();
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("GameScene_2");
         }
     }
 
