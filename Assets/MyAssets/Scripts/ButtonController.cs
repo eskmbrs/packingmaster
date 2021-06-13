@@ -28,6 +28,8 @@ public class ButtonController : MonoBehaviour
 
     public void GenerateMode()
     {
+        if (!moveButton.btn.interactable) return;
+
         generateObjectButton1.Activate();
         generateObjectButton2.Activate();
         generateObjectButton3.Activate();
@@ -37,6 +39,11 @@ public class ButtonController : MonoBehaviour
 
     public void RotateMode()
     {
+        if (
+            rotateButton.btn.interactable
+            || moveButton.btn.interactable
+        ) return;
+
         generateObjectButton1.Deactivate();
         generateObjectButton2.Deactivate();
         generateObjectButton3.Deactivate();
@@ -46,6 +53,8 @@ public class ButtonController : MonoBehaviour
 
     public void MoveMode()
     {
+        if (!rotateButton.btn.interactable) return;
+
         generateObjectButton1.Deactivate();
         generateObjectButton2.Deactivate();
         generateObjectButton3.Deactivate();
