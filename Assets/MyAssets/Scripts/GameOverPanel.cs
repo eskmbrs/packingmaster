@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using GoogleMobileAds.Api;
 
 public class GameOverPanel : MonoBehaviour
 {
@@ -24,11 +23,6 @@ public class GameOverPanel : MonoBehaviour
         blackHatching = GameObject.Find("Canvas/GameOverPanel/BlackHatching");
         touchToRestart = GameObject.Find("Canvas/GameOverPanel/TouchToRestart");
         forTheFirstTime = true;
-    }
-
-    public void Start() {
-        // Initialize the Google Mobile Ads SDK
-        MobileAds.Initialize(initStatus => { });
     }
 
     void Update() {
