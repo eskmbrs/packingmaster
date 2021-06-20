@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
             this.interstitial.Show();
             yield return new WaitForSeconds(1.0f);
         }
-
+        
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
@@ -129,7 +129,10 @@ public class GameController : MonoBehaviour
         #if UNITY_ANDROID
             string adUnitId = "unexpected_platform";
         #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+            //本番
+            string adUnitId = "ca-app-pub-1568519981535303/7135101757";
+            //テスト
+            //string adUnitId = "ca-app-pub-3940256099942544/4411468910";
         #else
             string adUnitId = "unexpected_platform";
         #endif
