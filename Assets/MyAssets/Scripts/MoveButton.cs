@@ -16,17 +16,13 @@ public class MoveButton : MonoBehaviour
     public void StartToMove()
     {
         if (!btn.interactable) return;
-
         IsMoving = true;
-        Debug.Log("ismoving");
     }
 
     public void StopMoving()
     {
         if (!btn.interactable) return;
-
         IsMoving = false;
-        Debug.Log("away_move");
     }
 
     public void Activate()
