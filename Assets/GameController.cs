@@ -130,9 +130,9 @@ public class GameController : MonoBehaviour
             string adUnitId = "unexpected_platform";
         #elif UNITY_IPHONE
             //本番
-            string adUnitId = "ca-app-pub-1568519981535303/7135101757";
+            //string adUnitId = "ca-app-pub-1568519981535303/7135101757";
             //テスト
-            //string adUnitId = "ca-app-pub-3940256099942544/4411468910";
+            string adUnitId = "ca-app-pub-3940256099942544/4411468910";
         #else
             string adUnitId = "unexpected_platform";
         #endif
