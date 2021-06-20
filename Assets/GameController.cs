@@ -129,7 +129,7 @@ public class GameController : MonoBehaviour
         #if UNITY_ANDROID
             string adUnitId = "unexpected_platform";
         #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-1568519981535303~1988670562";
+            string adUnitId = "ca-app-pub-3940256099942544/4411468910";
         #else
             string adUnitId = "unexpected_platform";
         #endif
@@ -140,5 +140,10 @@ public class GameController : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
+    }
+
+    private void OnApplicationQuit()
+    {
+        this.interstitial.Destroy();
     }
 }
