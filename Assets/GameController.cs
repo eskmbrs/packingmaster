@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
     public GameObject gameOverPanel;
     public GameObject gameClearPanel;
 
+    private BannerView bannerView;
+
     [SerializeField]
     private bool isStart = false;
 
@@ -30,6 +32,8 @@ public class GameController : MonoBehaviour
 
         // Initialize the Google Mobile Ads SDK
         MobileAds.Initialize(initStatus => { });
+
+        this.RequestBanner();
 
         if (isStart) {
             gameOverPanel.gameObject.SetActive(false);
@@ -102,11 +106,7 @@ public class GameController : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(0.5f);
-        if (this.interstitial.IsLoaded()) {
-            this.interstitial.Show();
-            yield return new WaitForSeconds(1.0f);
-        }
-
+    
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
@@ -140,5 +140,25 @@ public class GameController : MonoBehaviour
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
+    }
+
+    private void RequestBanner()
+    {
+        #if UNITY_ANDROID
+                string adUnitId = "ca-app-pub-3940256099942544/6300978111";
+        #elif UNITY_IPHONE
+                string adUnitId = "ca-app-pub-3940256099942544/2934735716";
+        #else
+                string adUnitId = "unexpected_platform";
+        #endif
+
+        // Create a 320x50 banner at the top of the screen.
+        this.bannerView = new BannerView(adUnitId, AdSize.Banner, AdPosition.Top);
+
+        // Create an empty ad request.
+        AdRequest request = new AdRequest.Builder().Build();
+
+        // Load the banner with the request.
+        this.bannerView.LoadAd(request);
     }
 }
