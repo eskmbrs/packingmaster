@@ -136,14 +136,18 @@ public class GameController : MonoBehaviour
 
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
+
+        this.interstitial.OnAdClosed += HandleOnAdClosed;
+
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
     }
 
-    private void OnApplicationQuit()
+    public void HandleOnAdClosed(object sender, System.EventArgs args)
     {
-        this.interstitial.Destroy();
+        //メモリリーク防止
+        interstitial.Destroy();
     }
 }
