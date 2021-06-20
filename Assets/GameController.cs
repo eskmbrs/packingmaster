@@ -24,12 +24,19 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // GameSceneが読み込まれた時にスタートパネルを表示させないために
+        // 一番最初にこの処理をする
         startPanel.gameObject.SetActive(isStart);
-        gameOverPanel.gameObject.SetActive(false);
-        gameClearPanel.gameObject.SetActive(false);
 
         // Initialize the Google Mobile Ads SDK
         MobileAds.Initialize(initStatus => { });
+
+        if (isStart) {
+            gameOverPanel.gameObject.SetActive(false);
+            gameClearPanel.gameObject.SetActive(false);
+        } else {
+            CallGameStart();
+        }
     }
 
     // Update is called once per frame
@@ -99,7 +106,7 @@ public class GameController : MonoBehaviour
             this.interstitial.Show();
             yield return new WaitForSeconds(1.0f);
         }
-        
+
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
