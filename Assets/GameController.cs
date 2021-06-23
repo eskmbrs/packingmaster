@@ -5,6 +5,12 @@ using GoogleMobileAds.Api;
 using UnityEngine.SceneManagement;
 
 
+public enum GameState {
+    Playing,
+    Clear,
+    Failed
+}
+
 public class GameController : MonoBehaviour
 {
     public GameObject startPanel;
@@ -14,11 +20,14 @@ public class GameController : MonoBehaviour
     [SerializeField]
     private bool isStart = false;
 
+    public GameState State;
+
     private void Awake()
     {
         startPanel = GameObject.Find("Canvas/StartPanel");
         gameOverPanel = GameObject.Find("Canvas/GameOverPanel");
         gameClearPanel = GameObject.Find("Canvas/GameClearPanel");
+        State = GameState.Playing;
     }
 
     // Start is called before the first frame update
@@ -27,16 +36,12 @@ public class GameController : MonoBehaviour
         // GameSceneが読み込まれた時にスタートパネルを表示させないために
         // 一番最初にこの処理をする
         startPanel.gameObject.SetActive(isStart);
+        gameOverPanel.gameObject.SetActive(false);
+        gameClearPanel.gameObject.SetActive(false);
 
         // Initialize the Google Mobile Ads SDK
         MobileAds.Initialize(initStatus => { });
-
-        if (isStart) {
-            gameOverPanel.gameObject.SetActive(false);
-            gameClearPanel.gameObject.SetActive(false);
-        } else {
-            CallGameStart();
-        }
+        RequestInterstitial();
     }
 
     // Update is called once per frame
@@ -71,8 +76,8 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameStart()
     {
+        State = GameState.Playing;
         yield return new WaitForSeconds(0.5f);
-        RequestInterstitial();
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(false);
         gameClearPanel.gameObject.SetActive(false);
@@ -81,6 +86,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameRestart()
     {
+        State = GameState.Playing;
         this.interstitial.Destroy();
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
@@ -92,6 +98,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator NextGame()
     {
+        State = GameState.Playing;
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(false);
@@ -101,12 +108,13 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameOver()
     {
+        State = GameState.Failed;
         yield return new WaitForSeconds(0.5f);
         if (this.interstitial.IsLoaded()) {
             this.interstitial.Show();
             yield return new WaitForSeconds(1.0f);
         }
-        
+
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
@@ -115,6 +123,7 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameClear()
     {
+        State = GameState.Clear;
         yield return new WaitForSeconds(0.5f);
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(false);
