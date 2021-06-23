@@ -16,9 +16,7 @@ public class RotateButton : MonoBehaviour
     public void StartToRotate()
     {
         if (!btn.interactable) return;
-
         IsRotating = true;
-        Debug.Log("isrotating");
     }
 
     public void StopRotating()
@@ -26,7 +24,6 @@ public class RotateButton : MonoBehaviour
         if (!btn.interactable) return;
 
         IsRotating = false;
-        Debug.Log("away");
     }
 
     public void Activate()

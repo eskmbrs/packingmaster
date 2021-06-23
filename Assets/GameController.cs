@@ -106,7 +106,7 @@ public class GameController : MonoBehaviour
             this.interstitial.Show();
             yield return new WaitForSeconds(1.0f);
         }
-
+        
         startPanel.gameObject.SetActive(false);
         gameOverPanel.gameObject.SetActive(true);
         gameClearPanel.gameObject.SetActive(false);
@@ -129,16 +129,28 @@ public class GameController : MonoBehaviour
         #if UNITY_ANDROID
             string adUnitId = "unexpected_platform";
         #elif UNITY_IPHONE
-            string adUnitId = "ca-app-pub-1568519981535303~1988670562";
+            //本番
+            //string adUnitId = "ca-app-pub-1568519981535303/7135101757";
+            //テスト
+            string adUnitId = "ca-app-pub-3940256099942544/4411468910";
         #else
             string adUnitId = "unexpected_platform";
         #endif
 
         // Initialize an InterstitialAd.
         this.interstitial = new InterstitialAd(adUnitId);
+
+        this.interstitial.OnAdClosed += HandleOnAdClosed;
+
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the interstitial with the request.
         this.interstitial.LoadAd(request);
+    }
+
+    public void HandleOnAdClosed(object sender, System.EventArgs args)
+    {
+        //メモリリーク防止
+        interstitial.Destroy();
     }
 }
