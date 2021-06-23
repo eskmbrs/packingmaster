@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ButtonController : MonoBehaviour
 {
     public GenerateObjectButton generateObjectButton1;
@@ -20,10 +21,6 @@ public class ButtonController : MonoBehaviour
         moveButton = GameObject.Find("Canvas/MoveButton").GetComponent<MoveButton>();
 
         GenerateMode();
-    }
-
-    void Update()
-    {
     }
 
     public void GenerateMode()
@@ -60,5 +57,13 @@ public class ButtonController : MonoBehaviour
         generateObjectButton3.Deactivate();
         rotateButton.Deactivate();
         moveButton.Activate();
+    }
+
+    public bool isFinished() {
+        return !generateObjectButton1.btn.interactable
+            && !generateObjectButton2.btn.interactable
+            && !generateObjectButton3.btn.interactable
+            && !rotateButton.btn.interactable
+            && !moveButton.btn.interactable;
     }
 }

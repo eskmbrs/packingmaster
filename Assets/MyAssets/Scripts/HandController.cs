@@ -26,7 +26,7 @@ public class HandController : MonoBehaviour
     private MoveButton moveButton;
 
     private bool isMoved = false;
-    
+
     private float insideBox = 2.8f;
     private float insideBox_top = 0.8f;
 
@@ -58,33 +58,15 @@ public class HandController : MonoBehaviour
 
     void Update()
     {
-        //クリア判定
-        //最後のオブジェクトが，ボックス内にある時
-        if (isLastObject && transform.position.y < insideBox_top)
+        //Failureの時の処理
+        if(gameController.State == GameState.Failed)
         {
-            clear_count_int++;
-            if (clear_count_int > 50)
+            if (forTheFirstTime_explode)
             {
-                gameController.CallGameClear();
+                ExplodeObject();
+                forTheFirstTime_explode = false;
             }
-        }
-
-        //Failure判定
-        //重力がかかっていて，上にはみ出している時
-        if(!controlled && transform.position.y > insideBox_top)
-        {
-            failure_count_int++;
-            if(failure_count_int > 100)
-            {
-                gameController.CallGameOver();
-                if (forTheFirstTime_explode)
-                {
-                    ExplodeObject();
-                    forTheFirstTime_explode = false;
-                }
-                controlled = true;
-                failure_count_int = 0;
-            }
+            controlled = true;
         }
 
 
