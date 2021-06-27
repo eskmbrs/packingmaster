@@ -27,7 +27,7 @@ public class GameController : MonoBehaviour
         startPanel = GameObject.Find("Canvas/StartPanel");
         gameOverPanel = GameObject.Find("Canvas/GameOverPanel");
         gameClearPanel = GameObject.Find("Canvas/GameClearPanel");
-        State = GameState.Playing;
+        State = GameState.Playing;       
     }
 
     // Start is called before the first frame update
@@ -42,11 +42,38 @@ public class GameController : MonoBehaviour
         // Initialize the Google Mobile Ads SDK
         MobileAds.Initialize(initStatus => { });
         RequestInterstitial();
+
+        RefreshStage();
     }
 
     // Update is called once per frame
     void Update()
     {}
+
+    private void RefreshStage()
+    {
+        //ToDo:ボックスの色
+        var randomColor = new Color(Random.value, Random.value, Random.value, 0.5f);
+        ChangeBoxColor("Floor", randomColor);
+        ChangeBoxColor("Left", randomColor);
+        ChangeBoxColor("Right", randomColor);
+        ChangeBoxColor("Back", randomColor);
+        ChangeBoxColor("Front", randomColor);
+        
+        //ToDo:オブジェクトの種類
+
+        //ToDo:背景
+
+    }
+
+    private void ChangeBoxColor(string boxPart, Color color)
+    {
+        GameObject.Find("Box/" + boxPart).GetComponent<Renderer>().material.color = color;
+        if(boxPart == "Front")
+        {
+            GameObject.Find("Box/" + boxPart).GetComponent<Renderer>().material.color -= new Color(0, 0, 0, 0.5f);
+        }
+    }
 
     public void CallGameStart()
     {
