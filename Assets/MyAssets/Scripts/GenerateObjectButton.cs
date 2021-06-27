@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -8,34 +9,49 @@ public class ButtonPairs
 {
     private ButtonPair[] buttonPairList = new ButtonPair[]
     {
-        new ButtonPair("TeddyBear_01","CoffeeTable_01", "DeskLamp_01",1,1,1)
+        new ButtonPair("TeddyBear_01", "CoffeeTable_01", "DeskLamp_01", 1, 1, 1),
     };
 
-    public ButtonPair generate()
+    public ButtonInfo[] generate()
     {
-        return buttonPairList[Random.Range(0, buttonPairList.Length)];
+        return buttonPairList[UnityEngine.Random.Range(0, buttonPairList.Length)].GetButtons();
     }
 }
 
 public class ButtonPair
 {
-    public string button1;
-    public string button2;
-    public string button3;
+	private ButtonInfo[] pair;
 
-    public int button1Num;
-    public int button2Num;
-    public int button3Num;
-
-    public ButtonPair(string button1,string button2,string button3,int button1Num,int button2Num,int button3Num)
+    public ButtonPair(
+        string button1Name,
+        string button2Name,
+        string button3Name,
+        int button1Num,
+        int button2Num,
+        int button3Num
+    )
     {
-        this.button1 = button1;
-        this.button2 = button2;
-        this.button3 = button3;
-        this.button1Num = button1Num;
-        this.button2Num = button2Num;
-        this.button3Num = button3Num;
+		var button1 = new ButtonInfo(button1Name, button1Num);
+		var button2 = new ButtonInfo(button2Name, button2Num);
+		var button3 = new ButtonInfo(button3Name, button3Num);
+		this.pair = new ButtonInfo[] { button1, button2, button3 };
+	}
+
+    public ButtonInfo[] GetButtons() {
+        return pair.OrderBy(i => System.Guid.NewGuid()).ToArray();
     }
+}
+
+public class ButtonInfo
+{
+	public string ObjName;
+	public int LastNum;
+
+    public ButtonInfo(string objName, int lastNum)
+    {
+		ObjName = objName;
+		LastNum = lastNum;
+	}
 }
 
 public class GenerateObjectButton : MonoBehaviour
@@ -76,8 +92,9 @@ public class GenerateObjectButton : MonoBehaviour
         DecrementNumber();
 
         GameObject obj = (GameObject)Resources.Load(objName);
-
-        Instantiate(obj, new Vector3(-2f, 3.8f, 0.0f), Quaternion.Euler(0, 0, 0));
+		var pos = new Vector3(-2f, 3.8f, 0.0f);
+		var rot = obj.transform.rotation;
+		Instantiate(obj, pos, rot);
 
         obj.GetComponent<HandController>().controlled = true;
     }

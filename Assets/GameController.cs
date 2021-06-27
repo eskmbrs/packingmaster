@@ -34,7 +34,7 @@ public class GameController : MonoBehaviour
         startPanel = GameObject.Find("Canvas/StartPanel");
         gameOverPanel = GameObject.Find("Canvas/GameOverPanel");
         gameClearPanel = GameObject.Find("Canvas/GameClearPanel");
-        State = GameState.Playing;       
+        State = GameState.Playing;
     }
 
     // Start is called before the first frame update
@@ -73,24 +73,24 @@ public class GameController : MonoBehaviour
         generateObjectButton2 = GameObject.Find("Canvas/GenerateObjectButton2");
         generateObjectButton3 = GameObject.Find("Canvas/GenerateObjectButton3");
 
-        var buttonPair = buttonPairs.generate();
+        var buttons = buttonPairs.generate();
 
         var button1 = generateObjectButton1.GetComponent<GenerateObjectButton>();
         var button2 = generateObjectButton2.GetComponent<GenerateObjectButton>();
         var button3 = generateObjectButton3.GetComponent<GenerateObjectButton>();
 
-        button1.objName = buttonPair.button1;
-        button2.objName = buttonPair.button2;
-        button3.objName = buttonPair.button3;
+        button1.objName = buttons[0].ObjName;
+        button2.objName = buttons[1].ObjName;
+        button3.objName = buttons[2].ObjName;
 
-        button1.lastNum = buttonPair.button1Num;
-        button2.lastNum = buttonPair.button2Num;
-        button3.lastNum = buttonPair.button3Num;
+        button1.lastNum = buttons[0].LastNum;
+        button2.lastNum = buttons[1].LastNum;
+        button3.lastNum = buttons[2].LastNum;
 
         button1.GenerateObjectOnButton();
         button2.GenerateObjectOnButton();
         button3.GenerateObjectOnButton();
-        
+
         //ToDo:背景
 
     }
