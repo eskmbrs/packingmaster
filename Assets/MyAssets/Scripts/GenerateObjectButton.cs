@@ -40,7 +40,6 @@ public class ButtonPair
 
 public class GenerateObjectButton : MonoBehaviour
 {
-    
     [SerializeField]
     public int lastNum = 3;
 
@@ -65,8 +64,9 @@ public class GenerateObjectButton : MonoBehaviour
     public void GenerateObjectOnButton()
     {
         var objOnButton = (GameObject)Resources.Load(objName+"OnButton");
-        Instantiate(objOnButton, this.transform.position + positionToModify, Quaternion.identity,this.transform);
-        //btnObj.GetComponent<Transform>().transform.localScale = new Vector3(2, 2, 2);
+		var pos = this.transform.position + positionToModify;
+		var rot = objOnButton.transform.rotation;
+		Instantiate(objOnButton, pos, rot, this.transform);
     }
 
     public void GenerateObject()
