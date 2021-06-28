@@ -12,7 +12,11 @@ public class ButtonPairs
         new ButtonPair("AlarmClock_01", "CoffeeTable_01", "DeskLamp_01", 1, 1, 1),
         new ButtonPair("AlarmClock_01", "CoffeeTable_01", "TeddyBear_01", 1, 1, 1),
         new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 1),
-        new ButtonPair("CoffeeTable_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 1)
+        new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 2, 1, 1),
+        new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 1, 2, 1),
+        new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 2),
+        new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 2, 1, 2),
+        new ButtonPair("CoffeeTable_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 1),
     };
 
     public ButtonInfo[] generate()
