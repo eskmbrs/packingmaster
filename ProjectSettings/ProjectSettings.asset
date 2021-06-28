@@ -12,8 +12,8 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
-  productName: packingmaster1
+  companyName: e-bros
+  productName: PackingMaster
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -124,7 +124,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 1.0
+  bundleVersion: 1.0.0
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -171,10 +171,10 @@ PlayerSettings:
     Android: com.Company.ProductName
     Standalone: unity.DefaultCompany.FPS2
     Tizen: com.Company.ProductName
-    iPhone: com.Company.ProductName
+    iPhone: com.e-bros.PackingMaster
     tvOS: com.Company.ProductName
   buildNumber:
-    iPhone: 0
+    iPhone: 1.0.0
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 19
   AndroidTargetSdkVersion: 0
@@ -238,10 +238,10 @@ PlayerSettings:
   metalAPIValidation: 1
   iOSRenderExtraFrameOnPause: 1
   iosCopyPluginsCodeInsteadOfSymlink: 0
-  appleDeveloperTeamID:
-  iOSManualSigningProvisioningProfileID:
+  appleDeveloperTeamID: Rihito Iijima
+  iOSManualSigningProvisioningProfileID: 70956121-5e81-41a6-8bef-4aed5c336788
   tvOSManualSigningProvisioningProfileID:
-  iOSManualSigningProvisioningProfileType: 0
+  iOSManualSigningProvisioningProfileType: 2
   tvOSManualSigningProvisioningProfileType: 0
   appleEnableAutomaticSigning: 0
   iOSRequireARKit: 0
@@ -273,7 +273,7 @@ PlayerSettings:
   - m_BuildTarget:
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: de5f632a56bc845e4bdf6c04c5c341fa, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
