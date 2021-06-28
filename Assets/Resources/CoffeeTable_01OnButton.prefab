@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5086498936748802622}
   - component: {fileID: 5086498936748802621}
   m_Layer: 0
-  m_Name: CoffeeTable_01 1
+  m_Name: CoffeeTable_01OnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6136342366190866304}
   m_LocalRotation: {x: 0.000000021855694, y: -0.00000004371139, z: 9.055528e-16, w: 1}
-  m_LocalPosition: {x: 4.2808743, y: -10.913952, z: -3834.7705}
+  m_LocalPosition: {x: 0, y: 884, z: 0.00013400769}
   m_LocalScale: {x: 89.06033, y: 89.06033, z: 89.06033}
   m_Children: []
   m_Father: {fileID: 0}
