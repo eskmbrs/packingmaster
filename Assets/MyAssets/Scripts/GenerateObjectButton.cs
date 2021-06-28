@@ -9,10 +9,10 @@ public class ButtonPairs
 {
     private ButtonPair[] buttonPairList = new ButtonPair[]
     {
-        new ButtonPair("TeddyBear_01", "CoffeeTable_01", "DeskLamp_01", 1, 1, 1),
-        new ButtonPair("TeddyBear_01", "DeskLamp_01","AlarmClock_01", 1, 1, 1),
-        new ButtonPair("DeskLamp_01","AlarmClock_01","TeddyBear_01", 1, 1, 1),
-        new ButtonPair("AlarmClock_01","TeddyBear_01","CoffeeTable_01", 1, 1, 1),
+        new ButtonPair("AlarmClock_01", "CoffeeTable_01", "DeskLamp_01", 1, 1, 1),
+        new ButtonPair("AlarmClock_01", "CoffeeTable_01", "TeddyBear_01", 1, 1, 1),
+        new ButtonPair("AlarmClock_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 1),
+        new ButtonPair("CoffeeTable_01", "DeskLamp_01", "TeddyBear_01", 1, 1, 1)
     };
 
     public ButtonInfo[] generate()
@@ -65,7 +65,7 @@ public class GenerateObjectButton : MonoBehaviour
     [SerializeField]
     public string objName;
 
-    
+
 
     public Button btn;
 
@@ -83,7 +83,7 @@ public class GenerateObjectButton : MonoBehaviour
     public void GenerateObjectOnButton()
     {
         var objOnButton = (GameObject)Resources.Load(objName+"OnButton");
-		var pos = this.transform.position;        
+		var pos = this.transform.position;
 		var rot = objOnButton.transform.rotation;
 		var obj = Instantiate(objOnButton, pos, rot, this.transform);
         obj.transform.localPosition = new Vector3(obj.transform.localPosition.x,-16,obj.transform.localPosition.z);
